@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-export const USERS = Array(30)
+export const USERS = Array(32)
   .fill(null)
   .map((_, idx) => ({
     id: idx,

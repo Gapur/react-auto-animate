@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+.app {
+  display: flex;
+  justify-content: center;
+}
+
 .users {
   display: flex;
   flex-wrap: wrap;
