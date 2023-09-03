@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 import { USERS } from "./constants";
 
 export function App() {
   const [users, setUsers] = useState(USERS);
+  const [parent] = useAutoAnimate();
 
   const randomizeUsersList = () => {
     let allItems = [...USERS];
@@ -21,7 +23,7 @@ export function App() {
   return (
     <div className="app">
       <div className="users-box">
-        <div className="users">
+        <div className="users" ref={parent}>
           {users.map((user) => (
             <div className="user" key={user.id}>
               <img className="user-avatar" src={user.avatar} alt="avatar" />
