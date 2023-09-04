@@ -2,8 +2,7 @@ import { faker } from "@faker-js/faker";
 
 export const USERS = Array(32)
   .fill(null)
-  .map((_, idx) => ({
-    id: idx,
+  .map(() => ({
     avatar: faker.image.avatar(),
     fullName: `${faker.person.firstName()} ${faker.person.lastName()}`,
   }));
@@ -15,13 +14,12 @@ export const MENU_ITEMS = [
 
 export const CATS = Array(8)
   .fill(null)
-  .map((_, idx) => ({
-    id: idx,
+  .map(() => ({
     avatar: faker.image.urlLoremFlickr({ category: "cats" }),
     name: `${faker.animal.cat()}`,
   }));
 
-export const NEW_CAT = {
+export const generateNewCat = () => ({
   avatar: faker.image.urlLoremFlickr({ category: "cats" }),
   name: `${faker.animal.cat()}`,
-};
+});

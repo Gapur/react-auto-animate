@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Menu } from "antd";
+import { Menu, Button } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
-import { USERS, CATS, NEW_CAT, MENU_ITEMS } from "./constants";
+import { USERS, CATS, MENU_ITEMS, generateNewCat } from "./constants";
 
 const defaultMenuItemKey = MENU_ITEMS[0].key;
 
@@ -26,23 +27,30 @@ export function App() {
   };
 
   const addNewCat = () => {
-    const newCats = cats.concat({ id: cats.length + 1, ...NEW_CAT });
-    setCats(newCats);
-  }
+    const updatedCats = cats.concat(generateNewCat());
+    setCats(updatedCats);
+  };
+
+  const deleteCat = (catIdx) => {
+    const filteredCats = cats.filter((_, idx) => idx !== catIdx);
+    setCats(filteredCats);
+  };
 
   const renderExample = () => {
     if (activeExample === "randomizedUsersList") {
       return (
         <div className="users-box">
           <div className="users" ref={parent}>
-            {users.map((user) => (
-              <div className="user" key={user.id}>
+            {users.map((user, idx) => (
+              <div className="user" key={idx}>
                 <img className="user-avatar" src={user.avatar} alt="avatar" />
                 <span className="user-full-name">{user.fullName}</span>
               </div>
             ))}
           </div>
-          <button onClick={randomizeUsersList}>Randomize</button>
+          <Button type="primary" onClick={randomizeUsersList}>
+            Randomize
+          </Button>
         </div>
       );
     }
@@ -50,14 +58,24 @@ export function App() {
     return (
       <div>
         <div>
-          {cats.map((animal) => (
-            <div className="cat" key={animal.id}>
-              <img className="cat-avatar" src={animal.avatar} alt="avatar" />
-              <span className="cat-name">{animal.name}</span>
+          {cats.map((animal, idx) => (
+            <div className="cat" key={animal.name}>
+              <div className="cat-info">
+                <img className="cat-avatar" src={animal.avatar} alt="avatar" />
+                <span className="cat-name">{animal.name}</span>
+              </div>
+              <Button
+                shape="circle"
+                className="delete-button"
+                onClick={() => deleteCat(idx)}
+                icon={<DeleteOutlined />}
+              />
             </div>
           ))}
         </div>
-        <button onClick={addNewCat}>Add new cat</button>
+        <Button type="primary" onClick={addNewCat}>
+          Add new cat
+        </Button>
       </div>
     );
   };
@@ -65,7 +83,7 @@ export function App() {
   return (
     <div className="app">
       <Menu
-        style={{ width: 256 }}
+        style={{ width: 256, height: '100vh' }}
         defaultSelectedKeys={defaultMenuItemKey}
         mode="vertical"
         items={MENU_ITEMS}

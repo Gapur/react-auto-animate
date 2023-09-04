@@ -44,3 +44,33 @@ code {
   font-size: 16px;
   margin-left: 12px;
 }
+
+.cat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 240px;
+  margin-top: 12px;
+  border-radius: 16px;
+  box-shadow: 2px 2px 5px 0px rgba(172,171,171,1);
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.cat-info {
+  display: flex;
+  align-items: center; 
+}
+
+.cat-avatar {
+  height: 48px;
+  width: 48px;
+  border-radius: 48px;
+}
+
+.cat-name {
+  font-size: 16px;
+  margin-left: 12px;
+}
