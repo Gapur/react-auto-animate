@@ -17,10 +17,13 @@ code {
   justify-content: center;
 }
 
+.example-box {
+  width: 1020px;
+}
+
 .users {
   display: flex;
   flex-wrap: wrap;
-  width: 1020px;
 }
 
 .user {
