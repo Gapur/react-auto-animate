@@ -23,7 +23,7 @@ export function CatsList() {
   return (
     <div className="example">
       <div className="cats" ref={parent}>
-        {cats.map((cat, idx) => (
+        {cats.map((cat) => (
           <div className="cat" key={cat.id}>
             <div className="cat-info">
               <img className="cat-avatar" src={cat.avatar} alt="avatar" />

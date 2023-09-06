@@ -9,8 +9,8 @@ export const USERS = Array(24)
   }));
 
 export const MENU_ITEMS = [
-  { key: "randomizedUsersList", label: "Randomized Users List", target: "/" },
-  { key: "catsList", label: "Cats List", target: "/cats-list" },
+  { key: "randomizedUsersList", label: "Randomized Users List" },
+  { key: "catsList", label: "Cats List" },
 ];
 
 export const CATS = Array(7)
