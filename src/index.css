@@ -7,31 +7,35 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 .app {
   display: flex;
   justify-content: center;
 }
 
-.example-box {
+.content {
   width: 1020px;
+}
+
+.example {
+  padding: 20px 32px;
 }
 
 .users {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 16px;
 }
 
 .user {
   display: flex;
   align-items: center;
   width: 240px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  border: 1px solid #dbdbdb;
+  border-radius: 20px;
+  margin-top: 8px;
+  margin-right: 8px;
+  padding: 4px 16px;
+  box-shadow: 2px 2px 5px 0px rgba(218 217 217);
 }
 
 .user-avatar {
@@ -45,6 +49,10 @@ code {
   margin-left: 12px;
 }
 
+.cats {
+  margin-bottom: 16px;
+}
+
 .cat {
   display: flex;
   align-items: center;
@@ -53,10 +61,7 @@ code {
   margin-top: 12px;
   border-radius: 16px;
   box-shadow: 2px 2px 5px 0px rgba(172,171,171,1);
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding: 4px 16px;
 }
 
 .cat-info {
